@@ -29,6 +29,7 @@ WORKDIR /app
 
 # Copy the built binary from the builder stage
 COPY --from=builder /app/app .
+COPY --from=builder /app/response.json .
 
 # Grant write permission to /app for the unprivileged user
 RUN chown choreo:choreo /app && chmod 775 /app
